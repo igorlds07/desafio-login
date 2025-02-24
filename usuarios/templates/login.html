@@ -41,8 +41,9 @@
         }
 
         h1 {
-            font-size: 20px;
-            margin-bottom: 20px;
+            font-size: 30px;
+            margin-left: 115px;
+            margin-bottom: 35px;
         }
     </style>
 </head>
@@ -62,17 +63,16 @@
             <a href="/usuarios/cadastro">
                 <button type="button">Registrar</button>
             </a>
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li class="{% if message.tags %}{{ message.tags }}{% endif %}">
+                        {{ message }}
+                    </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </form>
-
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li class="{% if message.tags %}{{ message.tags }}{% endif %}">
-                    {{ message }}
-                </li>
-            {% endfor %}
-        </ul>
-        {% endif %}
     </div>
 </body>
 </html>

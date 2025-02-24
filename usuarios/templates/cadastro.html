@@ -41,8 +41,9 @@
         }
 
         h1 {
-            font-size: 20px;
-            margin-bottom: 20px;
+            margin-left: 30px;
+            font-size: 24px;
+            margin-bottom: 25px;
         }
 
         input[type="checkbox"] {
@@ -78,10 +79,7 @@
             <a href="/usuarios/login">
                 <button type="button">Cancelar</button>
             </a>
-        </form>
-    </div>
-
-    {% if messages %}
+            {% if messages %}
     <ul>
         {% for message in messages %}
             <li class="{% if message.tags %}{{ message.tags }}{% endif %}">
@@ -90,6 +88,8 @@
         {% endfor %}
     </ul>
     {% endif %}
+        </form>
+    </div>
 
     <script>
         // Função para alternar entre mostrar e esconder a senha
