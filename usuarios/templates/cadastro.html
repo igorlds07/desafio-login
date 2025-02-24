@@ -69,7 +69,6 @@
             <input type="password" placeholder="Confirmar senha" name="confirmar_senha" id="confirmar_senha" required>
             <br>
             
-            <!-- Checkbox para mostrar senha -->
             <input type="checkbox" id="mostrarSenha" onclick="togglePassword()">
             <label for="mostrarSenha">Mostrar senha</label>
             <br>
@@ -92,18 +91,17 @@
     </div>
 
     <script>
-        // Função para alternar entre mostrar e esconder a senha
         function togglePassword() {
             var senha = document.getElementById('senha');
             var confirmarSenha = document.getElementById('confirmar_senha');
             var mostrarSenha = document.getElementById('mostrarSenha');
 
             if (mostrarSenha.checked) {
-                senha.type = 'text'; // Torna a senha visível
-                confirmarSenha.type = 'text'; // Torna a confirmação da senha visível
+                senha.type = 'text'; 
+                confirmarSenha.type = 'text'; 
             } else {
-                senha.type = 'password'; // Torna a senha invisível
-                confirmarSenha.type = 'password'; // Torna a confirmação da senha invisível
+                senha.type = 'password'; 
+                confirmarSenha.type = 'password'; 
             }
         }
     </script>
