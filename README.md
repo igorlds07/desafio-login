@@ -2,8 +2,6 @@
 
 ## 📝 Descrição
 
-Este projeto é uma aplicação desenvolvida em **Django** que simula um sistema de login e cadastro de usuários, como parte de um desafio técnico para a empresa **Fidelity Pesquisas Cadastrais**.
-
 O sistema permite que os usuários se cadastrem, façam login, e sejam redirecionados para uma tela de **Menu** após o login bem-sucedido. Ele inclui validações para garantir que os dados sejam inseridos corretamente (como e-mail válido, senhas fortes e a confirmação da senha).
 
 Além disso, após o cadastro, um e-mail de confirmação é enviado para o usuário informando sobre o sucesso no registro.
@@ -31,25 +29,23 @@ Além disso, após o cadastro, um e-mail de confirmação é enviado para o usu�
    Abra o terminal e digite:
 
    ```bash
-   git clone https://github.com/SEU-REPOSITORIO-AQUI
+   git clone https://github.com/igorlds07/desafio-login
+   
 Instalar as dependências:
-
-
 Certifique-se de estar no diretório do projeto e tenha um ambiente virtual Python ativado. Execute o seguinte comando:
 pip install -r requirements.txt
-Configuração do Banco de Dados:
 
+
+Configuração do Banco de Dados:
 Para configurar o banco de dados (SQLite por padrão), rode o comando:
 python manage.py migrate
-Executar o servidor localmente:
-
 
 
 Para rodar a aplicação localmente, use:
 
 python manage.py runserver
-O sistema estará disponível em http://127.0.0.1:8000.
 
+O sistema estará disponível em http://127.0.0.1:8000.
 
 
 Criar um superusuário (opcional):
