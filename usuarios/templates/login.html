@@ -1,0 +1,41 @@
+<html>
+    <style>
+        
+        .container{
+            margin-left: 500px;
+            margin-top: 50px;
+        }
+    </style>
+    <head>
+        <title>Login</title>
+    </head>
+    <body>
+        <div class="container">
+        <h1>Login</h1>
+       <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Email" name="email" >
+            <br>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" placeholder="Senha" name="senha" >
+            <br>
+            <input type="submit" value="Entrar">
+            <br>
+            <a href="/usuarios/cadastro">
+                <button type="button">Registrar</button>
+            </a>
+
+       </form>
+        </div>
+       {% if messages %}
+       <ul>
+           {% for message in messages %}
+               <li class="{% if message.tags %}{{ message.tags }}{% endif %}">
+                   {{ message }}
+               </li>
+           {% endfor %}
+       </ul>
+   {% endif %}
+    </body>
+</html>
