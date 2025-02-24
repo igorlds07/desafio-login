@@ -1,46 +1,111 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Usuários</title>
     <style>
-        
-        .container{
-            margin-left: 500px;
-            margin-top: 50px;
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: left;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"], button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        button {
+            margin-top: 5px;
+        }
+
+        h1 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        input[type="checkbox"] {
+            margin-top: 10px;
         }
     </style>
-    <head>
-        <title>Cadastro de Usuários</title>
-    </head>
-    <body>
-        <div class="container">
+</head>
+<body>
+    <div class="container">
         <h1>Cadastro de Usuários</h1>
-       <form action="{% url 'cadastro' %}" method="POST">
+        <form action="{% url 'cadastro' %}" method="POST">
             {% csrf_token %}
             <label for="usuario">Nome:</label>
-            <input type="text" placeholder="Digite seu nome" name="usuario" >
+            <input type="text" placeholder="Digite seu nome" name="usuario" required>
             <br>
             <label for="email">Email:</label>
-            <input type="text" placeholder="Email" name="email" >
+            <input type="email" placeholder="Email" name="email" required>
             <br>
             <label for="senha">Senha:</label>
-            <input type="password" placeholder="Senha" name="senha" >
+            <input type="password" placeholder="Senha" name="senha" id="senha" required>
             <br>
             <label for="confirmar_senha">Confirmar senha:</label>
-            <input type="password" placeholder="Confirmar senha" name="confirmar_senha" >
+            <input type="password" placeholder="Confirmar senha" name="confirmar_senha" id="confirmar_senha" required>
             <br>
-            <input type="submit" value="Registrar">
-            <a href="/usuarios/login">
-                <button type="button">Cancelar</button> 
-            </a>
+            
+            <!-- Checkbox para mostrar senha -->
+            <input type="checkbox" id="mostrarSenha" onclick="togglePassword()">
+            <label for="mostrarSenha">Mostrar senha</label>
+            <br>
 
-       </form>
-        </div>
-       {% if messages %}
-       <ul>
-           {% for message in messages %}
-               <li class="{% if message.tags %}{{ message.tags }}{% endif %}">
-                   {{ message }}
-               </li>
-           {% endfor %}
-       </ul>
-   {% endif %}
-    </body>
+            <input type="submit" value="Registrar">
+            <br>
+            <a href="/usuarios/login">
+                <button type="button">Cancelar</button>
+            </a>
+        </form>
+    </div>
+
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li class="{% if message.tags %}{{ message.tags }}{% endif %}">
+                {{ message }}
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <script>
+        // Função para alternar entre mostrar e esconder a senha
+        function togglePassword() {
+            var senha = document.getElementById('senha');
+            var confirmarSenha = document.getElementById('confirmar_senha');
+            var mostrarSenha = document.getElementById('mostrarSenha');
+
+            if (mostrarSenha.checked) {
+                senha.type = 'text'; // Torna a senha visível
+                confirmarSenha.type = 'text'; // Torna a confirmação da senha visível
+            } else {
+                senha.type = 'password'; // Torna a senha invisível
+                confirmarSenha.type = 'password'; // Torna a confirmação da senha invisível
+            }
+        }
+    </script>
+</body>
 </html>
